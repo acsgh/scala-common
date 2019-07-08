@@ -1,6 +1,8 @@
 # scala-common
 Common utils used in several projects
 
+![Build Status](https://travis-ci.org/albertoteloko/scala-common.svg?branch=master)
+
 ## Log support
 Forget about initiate your log just extends your class / object with 
 
