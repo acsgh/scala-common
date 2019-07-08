@@ -1,7 +1,7 @@
 # scala-common
 Common utils used in several projects
 
-##Log support
+## Log support
 Forget about initiate your log just extends your class / object with 
 
 ```scala
@@ -14,7 +14,7 @@ object Foo extends LogSupport {
 
 
 
-##Stop Watch
+## Stop Watch
 
 Utility to measure time in your code
 
@@ -33,7 +33,7 @@ try{
 It will print:
 'Important stuff in 234 milliseconds'
 
-##Reentrants locks
+## Reentrant locks
 
 Utility to run safe locking in scala
 
