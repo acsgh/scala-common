@@ -1,19 +1,19 @@
 package com.acsgh.common.scala.lock
 
 class ReentrantLock extends java.util.concurrent.locks.ReentrantLock {
-  def secure[T](action: () => T): T = {
+  def run[T](action:  => T): T = {
     lock()
     try {
-      action()
+      action
     } finally {
       unlock()
     }
   }
 
-  def secure(action: () => Unit) {
+  def get(action:  => Unit) {
     lock()
     try {
-      action()
+      action
     } finally {
       unlock()
     }

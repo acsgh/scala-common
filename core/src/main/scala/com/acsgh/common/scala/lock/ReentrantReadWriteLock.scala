@@ -1,28 +1,28 @@
 package com.acsgh.common.scala.lock
 
 class ReentrantReadWriteLock extends java.util.concurrent.locks.ReentrantReadWriteLock {
-  def secureRead[T](action: () => T): T = {
+  def read[T](action:  => T): T = {
     readLock().lock()
     try {
-      action()
+      action
     } finally {
       readLock().unlock()
     }
   }
 
-  def secureWrite(action: () => Unit) {
+  def write(action:  => Unit) {
     writeLock().lock()
     try {
-      action()
+      action
     } finally {
       writeLock().unlock()
     }
   }
 
-  def secureWrite[T](action: () => T): T = {
+  def write[T](action:  => T): T = {
     writeLock().lock()
     try {
-      action()
+      action
     } finally {
       writeLock().unlock()
     }
