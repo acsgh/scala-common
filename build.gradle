@@ -6,6 +6,8 @@ println("Version: " + version)
 
 subprojects {
     apply plugin: "scala"
+    apply plugin: 'maven'
+    apply plugin: 'signing'
 
     compileJava.options.encoding = 'UTF-8'
 
@@ -31,7 +33,7 @@ subprojects {
         testRuntime "org.pegdown:pegdown:1.4.2"
         testCompile "org.scalamock:scalamock_2.12:4.1.0"
     }
-    
+
     repositories {
         mavenCentral()
     }
@@ -39,6 +41,69 @@ subprojects {
     tasks.withType(ScalaCompile) {
         scalaCompileOptions.with {
             force = true
+        }
+    }
+    task sourcesJar(type: Jar) {
+        from sourceSets.main.allJava
+        archiveClassifier = 'sources'
+    }
+
+    task javadocJar(type: Jar) {
+        from javadoc
+        archiveClassifier = 'javadoc'
+    }
+
+    if (!hasProperty("ossrhUsername")) {
+        project.ext.ossrhUsername = ""
+    }
+
+    if (!hasProperty("ossrhPassword")) {
+        project.ext.ossrhPassword = ""
+    }
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
+
+                snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
+
+                pom.project {
+                    name = 'Scala common'
+                    description = 'Common utils used in several projects'
+                    url = 'https://github.com/acsgh/scala-common'
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'acsgh'
+                            name = 'Alberto Crespo'
+                            email = 'albertocresposanchez@gmail.com'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:git@github.com:acsgh/scala-common.git'
+                        developerConnection = 'scm:git:git@github.com:acsgh/scala-common.git'
+                        url = 'https://github.com/acsgh/scala-common'
+                    }
+                }
+            }
+        }
+    }
+
+    javadoc {
+        if (JavaVersion.current().isJava9Compatible()) {
+            options.addBooleanOption('html5', true)
         }
     }
 }
