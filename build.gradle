@@ -1,0 +1,53 @@
+allprojects {
+    group = 'com.acsgh.common.scala'
+}
+
+println("Version: " + version)
+
+subprojects {
+    apply plugin: "scala"
+
+    compileJava.options.encoding = 'UTF-8'
+
+    sourceCompatibility = 11
+    targetCompatibility = 11
+
+    group = getGroupName(project)
+
+    dependencies {
+        compile "org.scala-lang:scala-library:$SCALA_VERSION"
+        compile "org.slf4j:slf4j-api:1.7.21"
+
+        testRuntime 'ch.qos.logback:logback-classic:1.1.7'
+
+        testCompile "org.junit.jupiter:junit-jupiter-api:5.3.2"
+        testCompile "org.junit.jupiter:junit-jupiter-params:5.3.2"
+        testRuntime "org.junit.jupiter:junit-jupiter-engine:5.3.2"
+        testCompile 'org.junit.vintage:junit-vintage-engine:5.3.2'
+        testCompile 'junit:junit:4.12'
+
+        testCompile "org.scalatest:scalatest_2.12:3.0.5"
+        testCompile 'org.scalacheck:scalacheck_2.12:1.14.0'
+        testRuntime "org.pegdown:pegdown:1.4.2"
+        testCompile "org.scalamock:scalamock_2.12:4.1.0"
+    }
+    
+    repositories {
+        mavenCentral()
+    }
+
+    tasks.withType(ScalaCompile) {
+        scalaCompileOptions.with {
+            force = true
+        }
+    }
+}
+
+String getGroupName(Project project) {
+    if ((project.parent == null) || (project.parent == rootProject)) {
+        return project.group
+    } else {
+        return getGroupName(project.parent) + "." + project.parent.name
+    }
+}
+

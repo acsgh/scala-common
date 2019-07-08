@@ -1,0 +1,3 @@
+rootProject.name = 'scala-common'
+
+include ':core'

@@ -1,0 +1,5 @@
+apply plugin: "scala"
+
+dependencies {
+    compile "com.beachape:enumeratum_2.12:$ENUMERATUM_VERSION"
+}
