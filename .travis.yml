@@ -1,16 +1,33 @@
-language: java
+env:
+  global:
+    - # GITHUB_TOKEN
+    - secure: "fEOM3Br8PWxZ6KYlsKCnTd9kUVGIdFIUesA1DRkqMnrmphBgSjST5+HxKR12HzSwTGUHjWOMDgsQqoLv1wrOsqXgxMMElYMYgnPDFvIyB3TNwwP3qLWCqcmMURUhlu1vA4WH5dL43mQ+o/6Lr8B4deaIOSbHEf/gI13JdaTiV1YsxxJ4/HQZiF0sdg8t+R0mfWbDLlgRW8tDl9B+XXDQ8I3fo4vUsFVzmiV5sBi+gHkngy+dBh/aYIizEiXmtILMg6BmG68N53q2evI2WSXVROrKeuTzlJoAb9SvcR67bnyr+rheeW9KTtUe5ysgxA6wSpwSO5EkqbSXPPKzr26yqEH9MDI56V5VcFcTKiqNjTtO3UY93kexLzNaQuFmw7u5MAkP/L8712G71jhy32VBg502v6VKXkhh9sYf97hePMkCVWabqh2rPF7vHEC9Iupsm4wjs19YQ3uJt9aRsJqyiSLCoCPb8snKdt9BnIlD59WyiZI9TsgYUynMOBtDKAD1AQv44HUvnxrFQBGk0cCrd4dXmAuWXDdXMAE2IHGLtOzfHuF6y+aHNKgwrQAk7yeC5joC+vMpa1K0k31YKtboZaoKOiYuGeheg+YTXrQbISW+Mq4ZZrem3MAkpxWp9IJlJi6e3jgSTexCytyCCsalIOAEekemyRTiiQJR67ebfco="
+    - # OSSRH_USERNAME
+    - secure: "K6Pajgo06eOfggkqg4+9OJN0O/XFUNvk3MR6tmNnHoGqkp1esXMSBuSPpveyOgZoS0wg3DiXQEszeDEz47O2vWMpsn6DVJKg0FfnbhP74+LyCBSAt8X8BiQj2WhmYmqSLWvS+h4GEurpP+LmRyRDt1aDM+L8lY0k1eV91a1fKwufyucyCmaFGyMC7TfCT47vTGL7DGw2aiEIklUNyJp89hMyYaaMeag8qpvxwe09oPp0detidoTlCpwzwfeBihGAIjyeyenGdO2Zw59p2q0NxtxPZS+Wq3153AAcu+hyGVk3NbxaT+e9HBaKhXXgIPoytafFNIztOJ6bOfLnW/DzyL865Zj/ElFQ4kg/e/BPbeBRxmGMSVNnd54vdqmWpJdDsXOgaPUgM7mZ7NvqiPwRhbEggWyYpuEhtaVIKHa7SFB4/r9K1qzY5YTlMIbu3PbZYaeEStTLwVgStwru70EyxLqMUI3BGAk6FL3Q6FVrqECaK3JelV+VdUeBmTUdu3kYvHd+PVmSo8EWUUZWF8LjPKjXGYy49amujE08PtKeNDUexMbp5/RJPz+tN2oXGiciRwfOZzcp2Kv13A1cSj4GiBVycV/vcg4kDd3k73g250sdv3bLTnPHKZAwROCQoEf7RNvcO1AWqzLA59geIrpGAccmgT1Wp++Mi4BwF4z9uu0="
+    - # OSSRH_PASSWORD
+    - secure: "oq8xN0fQhHR0p1L/4vSuJfssMTZwJNQKjlG908+7unJbF3rSZAtfbY0hh9bLcirTNigfMkz0F6NeEVLo9IidRoncv1rQEk0Igqaob4eqUbs+URNdxrk5w7t1FDSR03ygnhEIBiZLtmPDZmgF9RgDUqL4y7NHNUBCEXk41Pw3vDZ/CmWU2yn8gUQKpdTzB9igGtMKjfCfrIDAwu2uXlkv25dWsXAXJGmKva50KA0js7NxYekC+d/ExArAaI8G77AlY4VaE6bR5O339TAo+4oTK9j5/1u31DgXaTcFa43/cyT4P1zIilOs2g7tffw4sVNCAW7W2PNJeE2u6zQiVct68gaGi2CiR2tr9EGVLgrw7ghlI+t6XaAqdqM65Fr4+v5MQsO3xic+84y6XjTX8mkYRQQZqJU5ovHiwPM7BaI3XidaA3qm1Rz0lZ+YAp5rgERoxpHZbRzlJF3Ral4gIBudifJpQRKmi3slaTX90UA2TuHQOM/xOtCZD92l1qAx7Fva11qD/DoS63ZUyY42nS2jtQ/aywQcs9z35F052j9zq+g0AB1xkFxKMPSY/g8POCQ9tZoVJItNvlw+26/UFv8ODfkXC9967+ja6BmMu3KwDlc+fUggst3N0Jp+r/OQvXslYeTEpbHja9QaUD2M6lgY5WDPTeQ2npsc+ZcxRg36L+0="
+    - # GPG_KEY_ID
+    - secure: "AVjV+uq2LBFeA24Va92tit9IcPWItzJJdQWJ4TOj90HicpvMNrZmbP8+gBq+nBxDmgPdgbohFrO7R4b16Q7eNsozppskXAvupTJZ5DRQ7qu7YvrL7d/DZeb2OVGn0v6cCxiPDLUas3ySbfTiuczVm75oHwSTiLGc04eDTUZRC0tXL2kJYxU7aI7hrK7WhaPxThGzHW9gDcjxNHoFAbQXuESR66oU1Dr0+KmJgTE0GlhGEjdGt1NIJvV46t3iPU7vJKvJrlECEmQ46bYv/hNBnYTloiNApBuUDgHpEWw7wNRy8Uvw10DGDaXbfcZ49nA8kQlkve2t6wGRi05dTGxsXPtTZ/MR+A9T9jNuRKUnzl+yK2QUZ8uqf5XKKIhsAKwEMKZ9Dd3kun6ZZ0yi5Q7ILGjSk0PB2719kVLO6uoJM9dndVyYCVD2NYFD0cF6GtuAOeOtiSWQA7dQZal2Oy1TY+x64Cic2ug8Vldq7JI0VAIEprLX8vcY1Q0T5G9U56TmdP+mlz6mpTlzBupOBofLlPdC/EHYRDDdhnnjNnpObIRIhANYdExZiKmefMCaOIm9OIfqIEeO8aPmpdH8DlQvpprBMdDvgf/omYEUT9U/tjlisv4k12Dhx7Kx/3IkffvLP0kFjH24DuIygJzcTKIcoIcpxboFuNsPZLhMpc759Og="
+    - # GPG_PASSPHRASE
+    - secure: "AuNSgDzajMcrHpGPWe7rrWcLPeWesYoiokyVaxC4kovEIT0gZKovsgfManL8A+trfh3V8bBkfNB3Vl2XzmmOsJKTBs163gYxZi8PD7x+TqRiCZzTRmwe18TJbViYsquxY2wozSOsUEokC7F5QUIDmp5zyyjNicR2jSBFRiPK/9obffi87VB5V0qCfeWq7dpYrqnJ2DdroxMkNJHyGOjEVLUg/0q30xr4E0aW70AZaMMEqHMaP9kzBZfRWWjzspNp1uEQCvta4u3KdLLo7GK02ny1Sq0ev1Vrz6LlsdyUfpeL0CpG88ekt7Bz3gg22j0eHUCUPud1Ehcg08Puuo8+nF3aids/SozoczWKZel74BRRUooqaRo1t0slfbpAdhRQrUob3R0ZkuH3TVRrXV9OgRDxV1h1DCSt55BRV0cVgi2DDl+IDLo6yVik31hEytAuC1Qdrvp/GMZT1NnQdqKYjIeNfY1E2fEON3uXkvWrbxL+VM+/6T7a796qZBMw+CKDyQbO5nhavdpBcu36exBWlZ2/chgqFBd3WWxsk+Gtx4TNqgvU8ry+KmC2SsSICI9aM1b1esGbj95GBgUNYSGVoST55/jowXyLbzEb4hVKUm3kYRA7zmik6lDGL3YAti64/5ZTyaCOtvKQGQQzl/TGpy1hG9R7rt3Howk9kCzUYLU="
+    - GPG_KEY_LOCATION=/home/alberto/.gnupg/secring.gpg
+    - ENCRYPTED_GPG_KEY_LOCATION=".travis/secret.gpg.enc"
 
+language: java
 jdk:
   - openjdk11
-
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
+before_install:
+  - chmod -R ug+x install.sh
+  - install.sh
 script:
-  - ./gradlew check
-  - ./gradlew assemble
+  - "./gradlew check"
+  - "./gradlew tagVersion"
+  - "./gradlew assemble"
+  - "./gradlew publish"
