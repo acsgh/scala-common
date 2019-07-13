@@ -25,7 +25,7 @@ cache:
     - "$HOME/.gradle/wrapper/"
 before_install:
   - chmod -R ug+x install.sh
-  - install.sh
+  - "./install.sh"
 script:
   - "./gradlew check"
   - "./gradlew tagVersion"
