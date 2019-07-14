@@ -13,5 +13,3 @@ ossrhPassword=$OSSRH_PASSWORD
 
 github.token=$GITHUB_TOKEN
 EOF
-
-cat /home/travis/.gradle/gradle.properties
