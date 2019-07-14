@@ -1,9 +1,13 @@
 buildscript {
     repositories {
+        mavenLocal()
+        mave{
+            url = "https://oss.sonatype.org/content/groups/public"
+        }
         mavenCentral()
     }
     dependencies {
-        classpath group: 'com.github.acsgh.common.gradle', name: 'gradle-plugins', version: '+', changing: true
+        classpath group: 'com.github.acsgh.common.gradle', name: 'gradle-plugins', version: '0.0.5', changing: true
     }
 }
 
@@ -39,4 +43,43 @@ subprojects {
         testCompile "org.scalamock:scalamock_2.12:4.1.0"
     }
 }
+
+def customizePom(pom) {
+    pom.withXml {
+        def root = asNode()
+
+        // add all items necessary for maven central publication
+        root.children().last() + {
+            resolveStrategy = Closure.DELEGATE_FIRST
+
+            name 'scala-common'
+            description 'Common utils used in several projects'
+            url 'https://github.com/acsgh/scala-common'
+
+            licenses {
+                license {
+                    name 'Apache License 2.0'
+                    url 'https://github.com/acsgh/scala-common/blob/master/LICENSE'
+                    distribution 'repo'
+                }
+            }
+
+            developers {
+                developer {
+                    id "acsgh"
+                    name 'Alberto Crespo'
+                    email 'albertocresposanchez@gmail.com'
+                }
+            }
+
+            scm {
+                connection "scm:git:https://github.com/acsgh/scala-common"
+                developerConnection "scm:git:https://github.com/acsgh/scala-common"
+                url "https://github.com/acsgh/scala-common"
+            }
+        }
+    }
+}
+
+project.extensions.add("customizePom", this.&customizePom)
 
