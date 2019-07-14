@@ -1,9 +1,10 @@
 buildscript {
     repositories {
+        mavenLocal()
         mavenCentral()
     }
     dependencies {
-        classpath group: 'com.github.acsgh.common.gradle', name: 'gradle-plugins', version: '+', changing: true
+        classpath group: 'com.github.acsgh.common.gradle', name: 'gradle-plugins', version: '0.0.4', changing: true
     }
 }
 
