@@ -23,6 +23,4 @@ before_install:
   - "./install.sh"
 script:
   - "./gradlew check"
-  - "./gradlew tagVersion"
-  - "./gradlew assemble"
-  - "./gradlew publish"
+  - "./gradlew assemble --debug"
