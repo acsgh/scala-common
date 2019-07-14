@@ -22,5 +22,4 @@ before_install:
   - chmod -R ug+x install.sh
   - "./install.sh"
 script:
-  - "./gradlew check"
   - "./gradlew assemble --debug"
