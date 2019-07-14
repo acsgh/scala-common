@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'com.github.acsgh.common.gradle', name: 'gradle-plugins', version: '0.0.12', changing: true
+        classpath group: 'com.github.acsgh.common.gradle', name: 'gradle-plugins', version: '0.0.13', changing: true
     }
 }
 
