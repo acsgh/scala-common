@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         mavenLocal()
-        mave{
+        maven{
             url = "https://oss.sonatype.org/content/groups/public"
         }
         mavenCentral()
