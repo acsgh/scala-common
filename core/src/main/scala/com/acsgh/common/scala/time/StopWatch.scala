@@ -3,9 +3,9 @@ package com.acsgh.common.scala.time
 import java.text.DecimalFormat
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicLong
-import java.util.logging.Logger
 
 import com.acsgh.common.scala.log.{LogLevel, LogSupport}
+import org.slf4j.Logger
 
 
 object StopWatch {
