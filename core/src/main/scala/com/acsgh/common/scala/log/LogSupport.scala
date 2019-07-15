@@ -1,7 +1,7 @@
 package com.acsgh.common.scala.log
 
+import com.typesafe.scalalogging.Logger
 import enumeratum.{Enum, EnumEntry}
-import org.slf4j.{Logger, LoggerFactory}
 
 
 sealed trait LogLevel extends EnumEntry
@@ -23,7 +23,7 @@ object LogLevel extends Enum[LogLevel] {
 }
 
 trait LogSupport {
-  val log: Logger = LoggerFactory.getLogger(this.getClass)
+  val log: Logger = Logger(getClass)
 
   protected def logText(level: LogLevel, text: String, params: Any*) {
     level match {

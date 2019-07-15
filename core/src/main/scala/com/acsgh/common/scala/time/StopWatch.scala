@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicLong
 
 import com.acsgh.common.scala.log.{LogLevel, LogSupport}
-import org.slf4j.Logger
+import com.typesafe.scalalogging.Logger
 
 
 object StopWatch {

@@ -27,6 +27,7 @@ subprojects {
 
     dependencies {
         compile "org.scala-lang:scala-library:$SCALA_VERSION"
+        compile "com.typesafe.scala-logging:scala-logging_2.12:3.9.2"
         compile "org.slf4j:slf4j-api:1.7.21"
 
         testRuntime 'ch.qos.logback:logback-classic:1.1.7'
