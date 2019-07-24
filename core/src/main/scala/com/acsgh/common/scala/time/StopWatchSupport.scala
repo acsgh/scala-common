@@ -5,7 +5,7 @@ import com.acsgh.common.scala.log.{LogLevel, LogSupport}
 
 trait StopWatchSupport extends LogSupport {
 
-  protected def time[T](text: String, level: LogLevel = LogLevel.INFO)(action: => T) {
+  protected def time[T](text: String, level: LogLevel = LogLevel.INFO)(action: => T): T = {
     val stopWatch = StopWatch.createStarted()
     try {
       action
