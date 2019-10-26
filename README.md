@@ -2,7 +2,7 @@
 Common utils used in several projects
 
 ![Build Status](https://travis-ci.org/acsgh/scala-common.svg?branch=master)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.acsgh.common.scala/core_2.12.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.acsgh.common.scala%22%20AND%20a:%22core_2.12%22)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.acsgh.common.scala/core_2.13.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.acsgh.common.scala%22%20AND%20a:%22core_2.13%22)
 
 ## Log support
 Forget about initiate your log just extends your class / object with 

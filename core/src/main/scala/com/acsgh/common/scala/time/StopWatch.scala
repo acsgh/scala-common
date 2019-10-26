@@ -50,13 +50,13 @@ case class StopWatch private() extends LogSupport {
   def getElapseTimeFormatted(unit: TimeUnit, formatter: DecimalFormat = StopWatch.DEFAULT_FORMATTER): String = formatter.format(getElapseTime(unit))
 
 
-  def printElapseTimeWithUnits(eventName: String, log: Logger, level: LogLevel, unit: TimeUnit, params: Any*) {
+  def printElapseTimeWithUnits(eventName: String, log: Logger, level: LogLevel, unit: TimeUnit, params: Any*): Unit = {
     val time = getElapseTimeFormatted(unit) + " " + unit.toString.toLowerCase()
     val text = s" in $time"
     logText(level, log, eventName + text, params: _*)
   }
 
-  def printElapseTime(eventName: String, log: Logger, level: LogLevel, params: Any*) {
+  def printElapseTime(eventName: String, log: Logger, level: LogLevel, params: Any*): Unit = {
     val time = TimerSplitter.getIntervalInfo(Math.round(getElapseTime(TimeUnit.MILLISECONDS)), TimeUnit.MILLISECONDS)
     val text = s" in $time"
     logText(level, log, eventName + text, params: _*)

@@ -1,7 +1,7 @@
 package com.acsgh.common.scala.lock
 
 class ReentrantReadWriteLock extends java.util.concurrent.locks.ReentrantReadWriteLock {
-  def read[T](action:  => T): T = {
+  def read[T](action: => T): T = {
     readLock().lock()
     try {
       action
@@ -10,7 +10,7 @@ class ReentrantReadWriteLock extends java.util.concurrent.locks.ReentrantReadWri
     }
   }
 
-  def write(action:  => Unit) {
+  def write(action: => Unit): Unit = {
     writeLock().lock()
     try {
       action
@@ -19,7 +19,7 @@ class ReentrantReadWriteLock extends java.util.concurrent.locks.ReentrantReadWri
     }
   }
 
-  def write[T](action:  => T): T = {
+  def write[T](action: => T): T = {
     writeLock().lock()
     try {
       action

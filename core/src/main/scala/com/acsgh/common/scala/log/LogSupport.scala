@@ -23,7 +23,7 @@ object LogLevel extends Enum[LogLevel] {
 }
 
 object LogSupport {
-  protected def logText(level: LogLevel, log: Logger, text: String, params: Any*) {
+  protected def logText(level: LogLevel, log: Logger, text: String, params: Any*): Unit = {
     level match {
       case LogLevel.TRACE => log.trace(text, params.toArray)
       case LogLevel.DEBUG => log.debug(text, params.toArray)
