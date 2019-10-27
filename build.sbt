@@ -2,6 +2,7 @@ ThisBuild / organization := "com.github.acsgh.common.scala"
 ThisBuild / scalaVersion := "2.13.1"
 
 lazy val commonSettings = Seq(
+  releasePublishArtifactsAction := PgpKeys.publishSigned.value,
   libraryDependencies ++= Seq(
     "com.beachape" %% "enumeratum" % "1.5.13",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
@@ -48,5 +49,3 @@ lazy val core = (project in file("core"))
     name := "core",
     commonSettings
   )
-
-
