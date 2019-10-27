@@ -41,6 +41,7 @@ lazy val root = (project in file("."))
     name := "scala-common",
     commonSettings
   )
+  .aggregate(core)
 
 lazy val core = (project in file("core"))
   .settings(
