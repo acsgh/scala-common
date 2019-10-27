@@ -4,6 +4,7 @@ ThisBuild / scalaVersion := "2.13.1"
 import ReleaseTransformations._
 
 lazy val commonSettings = Seq(
+  sonatypeProfileName := "alberto_teloko",
   releaseProcess := Seq[ReleaseStep](
     checkSnapshotDependencies,
     inquireVersions,
