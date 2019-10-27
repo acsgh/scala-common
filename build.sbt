@@ -1,7 +1,23 @@
 ThisBuild / organization := "com.github.acsgh.common.scala"
 ThisBuild / scalaVersion := "2.13.1"
 
+import ReleaseTransformations._
+
 lazy val commonSettings = Seq(
+  releaseProcess := Seq[ReleaseStep](
+    checkSnapshotDependencies,
+    inquireVersions,
+    runClean,
+    runTest,
+    setReleaseVersion,
+    commitReleaseVersion,
+    tagRelease,
+    publishArtifacts,
+    setNextVersion,
+    commitNextVersion,
+    ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
+    pushChanges
+  ),
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
   libraryDependencies ++= Seq(
     "com.beachape" %% "enumeratum" % "1.5.13",
