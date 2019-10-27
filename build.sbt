@@ -4,6 +4,7 @@ ThisBuild / scalaVersion := "2.13.1"
 import ReleaseTransformations._
 
 lazy val commonSettings = Seq(
+  scalacOptions += "-deprecation -feature",
   sonatypeProfileName := "com.github.acsgh",
   releaseProcess := Seq[ReleaseStep](
     checkSnapshotDependencies,
