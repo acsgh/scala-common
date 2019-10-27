@@ -1,5 +1,5 @@
 ThisBuild / organization := "com.github.acsgh.common.scala"
-ThisBuild / version := "1.1.0"
+ThisBuild / version := "1.1.0-SNAPSHOT"
 ThisBuild / scalaVersion := "2.13.1"
 
 lazy val commonSettings = Seq(
