@@ -15,7 +15,7 @@ lazy val commonSettings = Seq(
     releaseStepCommandAndRemaining("+publishSigned"),
     setNextVersion,
     commitNextVersion,
-    ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
+    ReleaseStep(action = Command.process("sonatypeBundleRelease", _)),
     pushChanges
   ),
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
