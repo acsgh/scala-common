@@ -21,6 +21,8 @@ lazy val commonSettings = Seq(
     commitNextVersion,
     pushChanges
   ),
+  crossScalaVersions := List("2.12.10", "2.13.1"),
+  releaseCrossBuild := true,
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
   libraryDependencies ++= Seq(
     "com.beachape" %% "enumeratum" % "1.5.13",
@@ -53,7 +55,9 @@ lazy val commonSettings = Seq(
 lazy val root = (project in file("."))
   .settings(
     name := "scala-common",
-    commonSettings
+    commonSettings,
+    crossScalaVersions := Nil,
+    publish / skip := true
   )
   .aggregate(core)
 
