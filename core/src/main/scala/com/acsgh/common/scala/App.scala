@@ -31,7 +31,7 @@ trait App extends LogSupport with StopWatchSupport {
 
   def start(): Unit = {
     if (_started.compareAndSet(false, true)) {
-      time(s"Server $name _started") {
+      time(s"Server $name started") {
         executeAll("Configure", configureActions)
         executeAll("Start", startActions)
       }
