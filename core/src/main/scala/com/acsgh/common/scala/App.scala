@@ -10,7 +10,7 @@ trait App extends LogSupport with StopWatchSupport {
   private var startActions: List[() => Unit] = List()
   private var stopActions: List[() => Unit] = List()
 
-  private val started = new AtomicBoolean(false)
+  private val _started = new AtomicBoolean(false)
 
   val name: String
 
@@ -21,6 +21,8 @@ trait App extends LogSupport with StopWatchSupport {
     start()
   }
 
+  def started: Boolean = _started.get()
+
   def onConfigure(action: => Unit): Unit = configureActions = configureActions ++ List(() => action)
 
   def onStart(action: => Unit): Unit = startActions = startActions ++ List(() => action)
@@ -28,8 +30,8 @@ trait App extends LogSupport with StopWatchSupport {
   def onStop(action: => Unit): Unit = stopActions = stopActions ++ List(() => action)
 
   def start(): Unit = {
-    if (started.compareAndSet(false, true)) {
-      time(s"Server $name started") {
+    if (_started.compareAndSet(false, true)) {
+      time(s"Server $name _started") {
         executeAll("Configure", configureActions)
         executeAll("Start", startActions)
       }
@@ -37,7 +39,7 @@ trait App extends LogSupport with StopWatchSupport {
   }
 
   def stop(): Unit = {
-    if (started.compareAndSet(true, false)) {
+    if (_started.compareAndSet(true, false)) {
       time(s"Server $name stopped") {
         executeAll("Stop", stopActions)
       }
