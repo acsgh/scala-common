@@ -7,7 +7,6 @@ import java.util.concurrent.atomic.AtomicLong
 import com.acsgh.common.scala.log.{LogLevel, LogSupport}
 import com.typesafe.scalalogging.Logger
 
-
 object StopWatch {
   private val DEFAULT_FORMATTER = new DecimalFormat("#.###")
 

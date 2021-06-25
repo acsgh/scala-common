@@ -2,7 +2,6 @@ package com.acsgh.common.scala.time
 
 import com.acsgh.common.scala.log.{LogLevel, LogSupport}
 
-
 trait StopWatchSupport extends LogSupport {
 
   protected def time[T](text: String, level: LogLevel = LogLevel.INFO)(action: => T): T = {
